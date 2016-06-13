@@ -1,0 +1,33 @@
+language: c
+
+sudo: required
+
+env: 
+  global:
+    - INCLUDE=addons/sourcemod/scripting/include/
+    - SCRIPTING=addons/sourcemod/scripting/
+    - PLUGINS=addons/sourcemod/plugins/
+
+before_install:
+  - sudo apt-get update
+  - sudo apt-get install gcc-multilib
+  - sudo apt-get install lynx
+  - sudo apt-get install lib32stdc++6
+  - mkdir build-env
+
+install:
+  - cd build-env
+  - wget http://www.sourcemod.net/smdrop/1.7/sourcemod-1.7.3-git5303-linux.tar.gz
+  - tar -xzvf sourcemod-1.7.3-git5303-linux.tar.gz
+  - cd ../
+  - find build-env/addons/sourcemod/scripting/ -name "*.sp" -type f -delete
+  - cp -rv $SCRIPTING/. build-env/addons/sourcemod/scripting/
+  - cp -rv $INCLUDE/. build-env/addons/sourcemod/scripting/include/
+
+before_script:
+  - chmod +rx build-env/addons/sourcemod/scripting/spcomp
+  - chmod +rx build-env/addons/sourcemod/scripting/compile.sh
+  - cd build-env/addons/sourcemod/scripting/
+  
+script:
+  - ./compile.sh
