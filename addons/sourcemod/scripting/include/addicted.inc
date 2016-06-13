@@ -36,7 +36,7 @@ stock int GetClientFromSteam(char[] steamid)
 {
 	char client_steamid[32];
 	
-	LoopValidPlayers(%1)
+	LoopValidPlayers(i)
 	{
 		GetClientAuthId(i, AuthId_Engine, STRING(client_steamid));
 
@@ -51,7 +51,7 @@ stock int GetClientFromIP(char[] ip)
 {
 	char client_ip[16];
 	
-	LoopValidPlayers(%1)
+	LoopValidPlayers(i)
 	{
 		GetClientIP(i, STRING(client_steamid));
 		
@@ -110,9 +110,9 @@ public Action Timer_Countdown(Handle timer, any pack)
 	ReadPackString(pack, format, sizeof(format));
 
 	if(userid != 0)
-		PrintCenterText(client, "%i seconds until", seconds, format);
+		PrintCenterText(client, "%i seconds until %s", seconds, format);
 	else
-		PrintCenterTextAll("%i seconds until", seconds, format);
+		PrintCenterTextAll("%i seconds until %s", seconds, format);
 
 	if(seconds != 1)
 	{
