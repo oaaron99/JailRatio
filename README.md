@@ -1,4 +1,4 @@
-# Jail
+# JailRatio
 
 Compile Status:<br/>
-<a href="https://travis-ci.com/oaaron99/JailRatio"><img src="https://travis-ci.com/oaaron99/JailRatio.svg?token=2L1rh7MN5UuRKPXmjcME"/></a>
+<a href="https://travis-ci.org/oaaron99/JailRatio"><img src="https://travis-ci.org/oaaron99/JailRatio.svg?branch=master"/></a>
